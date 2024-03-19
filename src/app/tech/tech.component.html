@@ -1,21 +1,65 @@
 <style>
 main {
-    background: #333333;
+    background: #FFFFFF;
     width: 100%;
     min-height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 1rem;
-    box-sizing: inherit;
-    position: relative;
+    position: absolute;
 }
 
-p {
+.parent {
+    min-height: 100%;
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    position: absolute;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+}
+
+.title p {
     display: flex;
     justify-content: center;
     font-family: 'Urbanist';
 }
+
+.content {
+    padding-top: 5%;
+    display: inline;
+    flex-wrap: inherit;
+    justify-content: center;
+    position: relative;
+}
+
+.pdf {
+    display: inline;
+    justify-content: center;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+}
+
 </style>
 
-<p>EVERYTHING ABOUT TECH</p>
+<main class="main">
+    <div class="parent">
+        <div class="title">
+            <p>TECH | RIDERS | REQUIREMENTS</p>
+        </div>
+
+        <div class="content">
+            <div class="pdf">
+                <iframe src="assets/docs/techrider.pdf" type="application/pdf">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</main>
