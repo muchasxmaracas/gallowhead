@@ -1,0 +1,85 @@
+<style>
+    main {
+        background: #FFFFFF;
+        width: 100%;
+        min-height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem;
+        position: absolute;
+    }
+    
+    .parent {
+        min-height: 100%;
+        min-width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: stretch;
+        position: absolute;
+    }
+    
+    .title {
+        display: flex;
+        justify-content: center;
+        position: absolute;
+    }
+    
+    .title p {
+        display: flex;
+        justify-content: center;
+        font-family: 'Urbanist';
+    }
+    
+    .content {
+        padding-top: 3rem;
+        display: inline;
+        flex-wrap: inherit;
+        justify-content: center;
+        position: relative;
+    }
+
+    .pics {
+        padding-top: 1rem;
+        display: flex;
+        flex-wrap: flex;
+        justify-content: center;
+        position: relative; 
+    }
+
+    .pics img {
+        width: 600px;
+        height: auto;
+    }
+
+    .logo {
+        padding-top: 2rem;
+        display: inline-block;
+        flex-wrap: flex;
+        justify-content: center;
+        position: relative; 
+    }
+
+    .logo img {
+        width: 450px;
+        height: auto;
+    }
+</style>
+
+<main class="main">
+    <div class="parent">
+        <div class="title">
+            <p>MEDIA | PRESS</p>
+        </div>
+
+        <div class="content">
+            <div class="pics">
+                <img src="assets/imgs/bandpic.jpg"/>
+            </div>
+            <div class="logo">
+                <img src="assets/imgs/logo-blackonwhite.jpg"/>
+                <img src="assets/imgs/logo-whiteonblack.jpg"/>
+            </div>
+        </div>
+    </div>
+</main>
