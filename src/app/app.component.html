@@ -1,12 +1,11 @@
 <style>
   :host {
-    --bright-blue: oklch(77.9% 0.109 264.375 / 64.5%);
+    --yellow: oklch(81.44% 0.169 76.64);
 
-    --gray-900: oklch(19.37% 0.006 300.98);
-    --gray-700: oklch(36.98% 0.014 302.71);
-    --gray-400: oklch(70.9% 0.015 304.04);
+    --brown-full: oklch(60.67% 0.143 59.29);
+    --brown-hover: oklch(81.44% 0.169 76.64);
 
-    --pill-accent: var(--bright-blue);
+    --pill-accent: var(--yellow);
 
     font-family: "Urbanist";
     box-sizing: border-box;
@@ -89,13 +88,13 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 1.25rem;
-    --pill-accent: var(--bright-blue);
+    --pill-accent: var(--yellow);
   }
 
   .pill {
     display: flex;
     align-items: center;
-    --pill-accent: var(--bright-blue);
+    --pill-accent: var(--yellow);
     background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
     color: var(--pill-accent);
     padding-inline: 0.75rem;
@@ -128,12 +127,12 @@
   }
 
   .social-links path {
-    transition: fill 0.3s ease;
-    fill: var(--gray-400);
+    transition: fill 0.4s ease;
+    fill: var(--brown-hover);
   }
 
   .social-links a:hover svg path {
-    fill: var(--gray-900);
+    fill: var(--brown-full);
   }
 
   @media screen and (max-width: 650px) {
