@@ -17,13 +17,13 @@ describe('AppComponent', () => {
   it(`should have the 'gallowhead' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('gallowhead');
+    expect(app.title).toEqual('Gallowhead');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, gallowhead');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Gallowhead Band');
   });
 });
