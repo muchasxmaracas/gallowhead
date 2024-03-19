@@ -1,6 +1,6 @@
 describe('Initial test', () => {
   it('Visits the initial project page', () => {
     cy.visit('/')
-    cy.contains('Manowar')
+    cy.contains('Heavy music')
   })
 })
