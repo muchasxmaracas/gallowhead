@@ -1,0 +1,35 @@
+name: "Semantic Release"
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+permissions:
+  contents: read
+jobs:
+  release:
+    permissions:
+      contents: write
+      pull-requests: write
+    name: release
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cycjimmy/semantic-release-action@v4
+        with:
+          dry_run: true
+          ci: true
+          semantic_version: 16
+          # you can set branches for semantic-release above v16.
+          branches: |
+            [
+              {
+                name: 'main',
+              }
+            ]
+          extra_plugins: |
+            @semantic-release/changelog@6.0.0
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
