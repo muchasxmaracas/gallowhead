@@ -16,13 +16,15 @@ jobs:
     name: release
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4.1.1
+      - uses: actions/setup-node@v4.0.2
+        with:
+          cache: npm
+          node-version: lts/*
       - uses: cycjimmy/semantic-release-action@v4
         with:
           dry_run: true
           ci: true
-          semantic_version: 16
-          # you can set branches for semantic-release above v16.
           branches: |
             [
               {
@@ -30,7 +32,7 @@ jobs:
               }
             ]
           extra_plugins: |
-            semantic-release/changelog@6.0.0
+            semantic-release/changelog@6.0.3
             semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
