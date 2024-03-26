@@ -19,7 +19,6 @@ jobs:
       - uses: actions/checkout@v4.1.1
       - uses: cycjimmy/semantic-release-action@v4
         with:
-          dry_run: true
           ci: true
           branches: |
             [
