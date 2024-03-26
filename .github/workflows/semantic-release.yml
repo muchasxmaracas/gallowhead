@@ -1,0 +1,22 @@
+name: "Semantic Release"
+
+steps:
+  - name: Checkout
+    uses: actions/checkout@v4
+  - name: Semantic Release
+    uses: cycjimmy/semantic-release-action@v4
+    with:
+      dry_run: true
+      ci: true
+      semantic_version: 16
+      # you can set branches for semantic-release above v16.
+      branches: |
+        [
+          {
+            name: 'main',
+          }
+        ]
+      extra_plugins: |
+        @semantic-release/changelog@6.0.0
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
