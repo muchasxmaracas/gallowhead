@@ -18,13 +18,5 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
       - uses: cycjimmy/semantic-release-action@v4
-        with:
-          ci: true
-          branches: |
-            [
-              {
-                name: 'main',
-              }
-            ]
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
