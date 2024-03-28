@@ -39,7 +39,8 @@ jobs:
         target: /etc/nginx/sites-available/
 
   check-config:
-    name: Start container
+    needs: deploy-nginx
+    name: Move config, cleanup copy dir and check config
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using ssh key
