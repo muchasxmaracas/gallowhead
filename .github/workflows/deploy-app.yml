@@ -22,7 +22,7 @@ jobs:
         key:  ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         source: "deploy/app/docker-compose.yml"
-        target: /var/data/services/test-gallowhead/"
+        target: /var/data/services/test-gallowhead/
 
   start-container:
     name: Start container
