@@ -38,18 +38,19 @@ jobs:
         source: "deploy/webserver/proxy/test.gallowhead.com.conf"
         target: /etc/nginx/sites-available/
 
-  check-config:
-    needs: deploy-nginx
-    name: Move config, cleanup copy dir and check config
-    runs-on: ubuntu-latest
-    steps:
-    - name: executing remote ssh commands using ssh key
-      uses: appleboy/ssh-action@v1.0.3
-      with:
-        host: ${{ secrets.REMOTE_HOST }}
-        username: ${{ secrets.REMOTE_USER }}
-        key: ${{ secrets.SSH_PRIVATE_KEY }}
-        port: ${{ secrets.PORT }}
-        script: |
-          mv /etc/nginx/sites-available/deploy/webserver/proxy/test.gallowhead.com.conf /etc/nginx/sites-available/test.gallowhead.com.conf && \ 
-          rm -rf /etc/nginx/sites-available/deploy/webserver/proxy/test.gallowhead.com.conf && ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && nginx -t
+#  check-config:
+#    needs: deploy-nginx
+#    name: Move config, cleanup copy dir and check config
+#    runs-on: ubuntu-latest
+#    steps:
+#    - name: executing remote ssh commands using ssh key
+#      uses: appleboy/ssh-action@v1.0.3
+#      with:
+#        host: ${{ secrets.REMOTE_HOST }}
+#        username: ${{ secrets.REMOTE_USER }}
+#        key: ${{ secrets.SSH_PRIVATE_KEY }}
+#        port: ${{ secrets.PORT }}
+#        script: |
+#          mv /etc/nginx/sites-available/deploy/webserver/proxy/test.gallowhead.com.conf /etc/nginx/sites-available/test.gallowhead.com.conf && \ 
+#          chown root: /etc/nginx/sites-available/test.gallowhead.com.conf && rm -rf /etc/nginx/sites-available/deploy && \ 
+#          ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && nginx -t
