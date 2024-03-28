@@ -34,13 +34,7 @@ jobs:
       contents: read
       packages: read
     steps:
-    - name: Log in to the Container registry
-      uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
-      with:
-        registry: ${{ env.REGISTRY }}
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
-    - name: executing remote ssh commands using ssh key
+    - name: Checks, moving docker-compose.yml, start container
       uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.REMOTE_HOST }}
@@ -52,4 +46,7 @@ jobs:
             mkdir /var/data/services/test-gallowhead \ 
           fi
           mv /var/data/services/test-gallowhead/deploy/app/docker-compose.yml /var/data/services/test-gallowhead/docker-compose.yml && rm -rf /var/data/services/test-gallowhead/deploy && \ 
-          cd /var/data/services/test-gallowhead/ && docker compose up --build -d
+          cd /var/data/services/test-gallowhead/ && \ 
+          docker login ${{ env.REGISTRY }} -u ${{ github.actor } -p ${{ secrets.GITHUB_TOKEN }} && \ 
+          docker compose up --build -d && \
+          docker logout
