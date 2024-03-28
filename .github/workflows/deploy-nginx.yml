@@ -24,7 +24,6 @@ on:
 jobs:
 
   deploy-nginx:
-
     steps:
       - name: Deploy Nginx
         runs-on: ubuntu-latest
