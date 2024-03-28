@@ -1,3 +1,5 @@
+name: Deploy Nginx Reverse Proxy Config
+
 on:
   workflow_dispatch:
     inputs:
