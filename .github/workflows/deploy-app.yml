@@ -13,21 +13,16 @@ jobs:
     name: Deploy compose
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy docker compose
-        uses: easingthemes/ssh-deploy@main
-        with:
-          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i"
-          SOURCE: "deploy/app/docker-compose.yml"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: "/var/data/services/test-gallowhead/"
-          EXCLUDE: "/dist/, /node_modules/"
-          SCRIPT_BEFORE: |
-            echo "Starting deployment ..."
-            if [ ! -d /var/data/services/test-gallowhead]; then 
-              mkdir /var/data/services/test-gallowhead
-            fi
+    - uses: actions/checkout@v4
+    - name: copy file via ssh password
+      uses: appleboy/scp-action@v0.1.7
+      with:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key:  ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
+        source: "deploy/app/docker-compose.yml"
+        target: /var/data/services/test-gallowhead/"
 
   start-container:
     name: Start container
