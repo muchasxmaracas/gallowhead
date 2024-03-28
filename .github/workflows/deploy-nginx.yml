@@ -36,4 +36,18 @@ jobs:
         key:  ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         source: "deploy/webserver/proxy/test.gallowhead.com.conf"
-        target: /etc/nginx/sites-enabled/test.gallowhead.com.conf
+        target: /etc/nginx/sites-available/test.gallowhead.com.conf
+
+  check-config:
+  name: Start container
+  runs-on: ubuntu-latest
+  steps:
+  - name: executing remote ssh commands using ssh key
+    uses: appleboy/ssh-action@v1.0.3
+    with:
+      host: ${{ secrets.REMOTE_HOST }}
+      username: ${{ secrets.REMOTE_USER }}
+      key: ${{ secrets.SSH_PRIVATE_KEY }}
+      port: ${{ secrets.PORT }}
+      script: |
+        ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && nginx -t

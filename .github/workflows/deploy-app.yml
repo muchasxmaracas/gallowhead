@@ -36,3 +36,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         script: cd /var/data/services/test-gallowhead && docker compose up --build -d
+        
