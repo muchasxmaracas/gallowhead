@@ -6,6 +6,8 @@ on:
       types: [completed]
       branches:
           - 'main'
+env:
+  REGISTRY: ghcr.io
 
 jobs:
 
@@ -28,7 +30,16 @@ jobs:
     needs: deploy-compose
     name: Start container and cleanup
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: read
     steps:
+    - name: Log in to the Container registry
+      uses: docker/login-action@65b78e6e13532edd9afa3aa52ac7964289d1a9c1
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@v1.0.3
       with:
