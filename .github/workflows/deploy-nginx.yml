@@ -36,7 +36,7 @@ jobs:
         key:  ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         source: "deploy/webserver/proxy/test.gallowhead.com.conf"
-        target: /etc/nginx/sites-available/test.gallowhead.com.conf
+        target: /etc/nginx/sites-available/
 
   check-config:
     name: Start container
