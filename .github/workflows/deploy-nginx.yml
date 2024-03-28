@@ -25,6 +25,7 @@ jobs:
 
     steps:
       - name: Deploy Nginx
+        runs-on: ubuntu-latest
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
