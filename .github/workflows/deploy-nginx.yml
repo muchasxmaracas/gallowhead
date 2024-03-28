@@ -55,4 +55,4 @@ jobs:
           mv /etc/nginx/sites-available/deploy/webserver/proxy/test.gallowhead.com.conf /etc/nginx/sites-available/test.gallowhead.com.conf && \ 
           rm -rf /etc/nginx/sites-available/deploy && \ 
           ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && \ 
-          nginx -t
+          nginx -t && systemctl reload nginx
