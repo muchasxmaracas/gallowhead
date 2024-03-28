@@ -21,11 +21,13 @@ jobs:
           SOURCE: "deploy/app/docker-compose.yml"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: "/var/data/services/test.gallowhead.com/"
+          TARGET: "/var/data/services/test-gallowhead/"
           EXCLUDE: "/dist/, /node_modules/"
           SCRIPT_BEFORE: |
             echo "Starting deployment ..."
-            if [ ! -d /var/data/services/test-gallowhead]; then mkdir /var/data/services/test-gallowhead
+            if [ ! -d /var/data/services/test-gallowhead]; then 
+              mkdir /var/data/services/test-gallowhead
+            fi
 
   start-container:
     name: Start container
