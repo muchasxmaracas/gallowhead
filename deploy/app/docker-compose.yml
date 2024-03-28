@@ -4,7 +4,5 @@ services:
   gallowhead:
     image: ghcr.io/muchasxmaracas/gallowhead:main
     restart: always
-    #healthcheck:
-    #  test: curl -I 
-    #  interval: 5s
-    #  retries: 5
+    ports: 
+      - '127.0.0.1:8080:80' 
