@@ -38,6 +38,7 @@ jobs:
           TARGET: "/etc/nginx/sites-enabled/"
           EXCLUDE: "/dist/, /node_modules/"
           SCRIPT_BEFORE: |
+            mkdir -p /home/runner/work/gallowhead/gallowhead/deploy/webserver/proxy
             ls -al
           SCRIPT_AFTER: |
             ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && nginx -t
