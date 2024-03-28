@@ -1,0 +1,37 @@
+on:
+workflow_dispatch:
+  inputs:
+    logLevel:
+      description: 'Log level'
+      required: true
+      default: 'warning'
+      type: choice
+      options:
+      - info
+      - warning
+      - debug
+    tags:
+      description: 'Test scenario tags'
+      required: false
+      type: boolean
+    environment:
+      description: 'Environment to run tests against'
+      type: environment
+      required: true
+
+jobs:
+  deploy-nginx:
+    - name: Deploy Nginx
+      uses: easingthemes/ssh-deploy@main
+      with:
+        SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        ARGS: "-rlgoDzvc -i"
+        SOURCE: "webserver/proxy/test.gallowhead.com.conf"
+        REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+        REMOTE_USER: ${{ secrets.REMOTE_USER }}
+        TARGET: "/etc/nginx/sites-enabled/"
+        EXCLUDE: "/dist/, /node_modules/"
+        SCRIPT_BEFORE: |
+          echo "Starting deployment ..."
+        SCRIPT_AFTER: |
+          ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && nginx -t

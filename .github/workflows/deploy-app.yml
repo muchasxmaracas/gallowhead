@@ -1,0 +1,23 @@
+name: Pull latest Docker image and start container
+# Configures this workflow to run every time a change is pushed to the branch called `release`.
+on:
+  workflow_run:
+      workflows: ['Create and publish a Docker image']
+      types: [completed]
+      branches:
+          - 'main'
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+    - name: executing remote ssh commands using ssh key
+      uses: appleboy/ssh-action@v1.0.3
+      with:
+        host: ${{ secrets.REMOTE_HOST }}
+        username: ${{ secrets.REMOTE_USER }}
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        port: ${{ secrets.PORT }}
+        script: docker pull
