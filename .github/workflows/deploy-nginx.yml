@@ -31,10 +31,9 @@ jobs:
     - name: copy file via ssh password
       uses: appleboy/scp-action@v0.1.7
       with:
-        host: ${{ secrets.HOST }}
+        host: ${{ secrets.REMOTE_HOST }}
         username: ${{ secrets.REMOTE_USER }}
         key:  ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         source: "deploy/webserver/proxy/test.gallowhead.com.conf"
         target: /etc/nginx/sites-enabled/
-        
