@@ -22,10 +22,10 @@ jobs:
         key:  ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         source: "deploy/app/docker-compose.yml"
-        target: /var/data/services/test-gallowhead/docker-compose.yml
+        target: /var/data/services/test-gallowhead/
 
   start-container:
-    name: Start container
+    name: Start container and cleanup
     runs-on: ubuntu-latest
     steps:
     - name: executing remote ssh commands using ssh key
@@ -35,5 +35,6 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
-        script: cd /var/data/services/test-gallowhead && docker compose up --build -d
-        
+        script: |
+          cd /var/data/services/test-gallowhead &&
+          mv /var/data/services/test-gallowhead/deploy/app/docker-compose.yml . && rm -rf deploy/app && docker compose up --build -d
