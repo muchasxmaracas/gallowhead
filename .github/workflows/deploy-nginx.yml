@@ -17,19 +17,19 @@ workflow_dispatch:
     environment:
       description: 'Environment to run tests against'
       type: environment
-      required: true
+      required: false
 
 jobs:
 
   deploy-nginx:
-  
+
     steps:
       - name: Deploy Nginx
         uses: easingthemes/ssh-deploy@main
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
           ARGS: "-rlgoDzvc -i"
-          SOURCE: "webserver/proxy/test.gallowhead.com.conf"
+          SOURCE: "deploy/webserver/proxy/test.gallowhead.com.conf"
           REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
           REMOTE_USER: ${{ secrets.REMOTE_USER }}
           TARGET: "/etc/nginx/sites-enabled/"

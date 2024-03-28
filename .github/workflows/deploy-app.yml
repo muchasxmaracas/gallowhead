@@ -9,7 +9,24 @@ on:
 
 jobs:
 
-  build:
+
+  deploy-compose:
+    steps:
+      - name: Deploy docker compose
+        uses: easingthemes/ssh-deploy@main
+        with:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          ARGS: "-rlgoDzvc -i"
+          SOURCE: "deploy/app/docker-compose.yml"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "/var/data/services/test.gallowhead.com/"
+          EXCLUDE: "/dist/, /node_modules/"
+          SCRIPT_BEFORE: |
+            echo "Starting deployment ..."
+            if [ ! -d /var/data/services/test-gallowhead]; then mkdir /var/data/services/test-gallowhead
+
+  start-container:
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -20,4 +37,4 @@ jobs:
         username: ${{ secrets.REMOTE_USER }}
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
-        script: docker pull
+        script: cd /var/data/services/test-gallowhead && docker compose up --build -d
