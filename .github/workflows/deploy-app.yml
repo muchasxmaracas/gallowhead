@@ -39,5 +39,5 @@ jobs:
         script: |
           if [ ! -d /var/data/services/test-gallowhead ]; then \ 
             mkdir /var/data/services/test-gallowhead \ 
-          fi \ 
+          fi
           mv /var/data/services/test-gallowhead/deploy/app/docker-compose.yml /var/data/services/test-gallowhead/docker-compose.yml && rm -rf /var/data/services/test-gallowhead/deploy && docker compose up --build -d
