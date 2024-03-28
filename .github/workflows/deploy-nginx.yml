@@ -50,5 +50,5 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         port: ${{ secrets.PORT }}
         script: |
-          cd /etc/nginx/sites-available/ && mv /etc/nginx/sites-available/deploy/webserver/proxy/test.gallowhead.com.conf . && \ 
-          rm -rf deploy/webserver/proxy && ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && nginx -t
+          mv /etc/nginx/sites-available/deploy/webserver/proxy/test.gallowhead.com.conf /etc/nginx/sites-available/test.gallowhead.com.conf && \ 
+          rm -rf /etc/nginx/sites-available/deploy/webserver/proxy/test.gallowhead.com.conf && ln -s /etc/nginx/sites-available/test.gallowhead.com.conf /etc/nginx/sites-enabled/ && nginx -t
