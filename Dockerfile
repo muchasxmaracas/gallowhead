@@ -11,6 +11,6 @@ USER nginx
 FROM nginx:1.25.4-alpine-slim AS runtime
 
 COPY --from=build /usr/src/app/dist/gallowhead /usr/share/nginx/html
-COPY --from= build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
+COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 4200
