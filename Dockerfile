@@ -6,11 +6,13 @@ COPY . /usr/src/app
 
 RUN npm install -g @angular/cli && npm install && ng build gallowhead && npm run build --prod
 
-USER web
-
 FROM nginx:1.25.4 AS runtime
 
-COPY --from=build /usr/src/app/dist/gallowhead /usr/share/nginx/html
+RUN rm -rf /usr/share/nginx/html/*
+
+COPY --from=build /usr/src/app/dist/gallowhead/ /usr/share/nginx/html/
 COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 4200
+
+USER web
