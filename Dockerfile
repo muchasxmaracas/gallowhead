@@ -6,7 +6,7 @@ COPY . /usr/src/app
 
 RUN npm install -g @angular/cli && npm install && ng build gallowhead && npm run build --prod
 
-USER nginx
+USER www-data
 
 FROM nginx:1.25.4 AS runtime
 
