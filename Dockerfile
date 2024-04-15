@@ -12,5 +12,3 @@ RUN rm -rf /usr/share/nginx/html/*
 
 COPY --from=build /usr/src/app/dist/gallowhead/ /usr/share/nginx/html/
 COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 8080
