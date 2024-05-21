@@ -5,4 +5,4 @@ services:
     image: ghcr.io/muchasxmaracas/gallowhead:main
     restart: always
     ports: 
-      - '127.0.0.1:12442:80' 
+      - '127.0.0.1:12442:8081' 
