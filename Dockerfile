@@ -21,7 +21,6 @@ RUN rm -rf /usr/share/nginx/html/*
 
 # Copy the build output to the nginx html directory
 COPY --from=build /usr/src/app/dist/gallowhead /usr/share/nginx/html
-RUN chmod -R 755 /usr/share/nginx/html/
 
 # Copy custom nginx configuration if needed
 COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
