@@ -12,7 +12,7 @@ RUN npm install -g npm@10.8.0 @angular/cli
 COPY . .
 
 # Build the Angular app
-RUN ng build gallowhead
+RUN npm install && ng build gallowhead
 
 # Stage 2: Serve the application with nginx
 FROM nginx:1.25.4-alpine
