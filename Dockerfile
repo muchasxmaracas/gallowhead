@@ -20,9 +20,7 @@ FROM nginx:1.25.4-alpine
 RUN rm -rf /usr/share/nginx/html/*
 
 # Copy the build output to the nginx html directory
-USER nginx
 COPY --from=build /usr/src/app/dist/gallowhead /usr/share/nginx/html
 
 # Copy custom nginx configuration if needed
-USER 1001
 COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
