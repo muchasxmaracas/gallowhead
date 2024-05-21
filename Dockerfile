@@ -4,12 +4,10 @@ WORKDIR /usr/src/app
 
 COPY . /usr/src/app
 
-RUN npm install -g npm@10.8.0 && npm install -g @angular/cli && npm install && ng build --configuration=production
+RUN npm install -g npm@10.8.0 && npm install -g @angular/cli && npm install && ng build --configuration=production --base-href /usr/src/app/dist/gallowhead/ --deploy-url /usr/src/app/dist/gallowhead/
 FROM nginx:1.25.4-alpine
 
 RUN rm -rf /usr/share/nginx/html/*
 
 COPY --from=build /usr/src/app/dist/gallowhead/ /usr/share/nginx/html/
 COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
-
-EXPOSE 12442
