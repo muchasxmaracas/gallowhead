@@ -25,5 +25,3 @@ RUN chown -R nginx: /usr/share/nginx/html
 
 # Copy custom nginx configuration if needed
 COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
-
-USER nginx
