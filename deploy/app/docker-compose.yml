@@ -2,7 +2,7 @@ version: '3'
 
 services:
   gallowhead:
-    image: ghcr.io/muchasxmaracas/gallowhead:new
+    image: ghcr.io/muchasxmaracas/gallowhead:main
     restart: always
     ports: 
       - '127.0.0.1:12442:80' 
