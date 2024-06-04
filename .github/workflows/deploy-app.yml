@@ -27,7 +27,6 @@ jobs:
   #       target: /var/data/services/test-gallowhead/
 
   start-container:
-    needs: deploy-compose
     name: Start container and cleanup
     runs-on: ubuntu-latest
     permissions:
