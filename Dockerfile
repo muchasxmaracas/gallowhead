@@ -1,6 +1,9 @@
 # Stage 1: Build the Angular application
 FROM node:lts-alpine3.19 AS build
 
+# Debug
+RUN echo "Destroying Docker layers to check for caching bug"
+
 WORKDIR /usr/src/app
 
 COPY package*.json ./
