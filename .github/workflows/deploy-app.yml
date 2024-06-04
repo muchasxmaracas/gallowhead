@@ -28,5 +28,5 @@ jobs:
         script: |
           docker login ${{ env.REGISTRY }} -u ${{ github.actor }} -p ${{ secrets.GITHUB_TOKEN }} && \ 
           docker pull ghcr.io/muchasxmaracas/gallowhead:1.0.0 && \
-          docker run -d -p 127.0.0.1:12442:8081 --name test-gallowhead ghcr.io/muchasxmaracas/gallowhead:1.0.0 && \
+          docker run -d -p 127.0.0.1:12442:8081 ghcr.io/muchasxmaracas/gallowhead:1.0.0 && \
           docker logout
