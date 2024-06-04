@@ -2,7 +2,7 @@ name: Pull latest Docker image and start container
 # Configures this workflow to run every time a change is pushed to the branch called `release`.
 on:
   workflow_run:
-      workflows: ['Create and publish a Docker image']
+      workflows: ['Semantic release, create and publish a Docker image']
       types: [completed]
       branches:
           - 'main'
