@@ -11,4 +11,3 @@ spec:
     name: letsencrypt-prod
     kind: ClusterIssuer
   secretName: gallowhead-test-cert
-~                           
