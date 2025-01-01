@@ -1,146 +1,143 @@
 <style>
   :host {
     --yellow: oklch(81.44% 0.169 76.64);
-
     --brown-full: oklch(60.67% 0.143 59.29);
     --brown-hover: oklch(81.44% 0.169 76.64);
-
     --pill-accent: var(--yellow);
 
-    font-family: "Urbanist";
+    font-family: "Urbanist", sans-serif;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  
+
+  body {
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+  }
+
   h1 {
-    font-size: 3.125rem;
+    font-size: clamp(2rem, 5vw, 3.125rem);
     color: #FFFFFF;
     font-weight: 500;
-    line-height: 100%;
-    letter-spacing: 1rem;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
     margin: 0;
-    font-family: 'Castoro Titling';
+    text-align: center;
+    font-family: 'Castoro Titling', serif;
   }
 
   p {
     margin: 0;
     color: #FFFFFF;
+    text-align: center;
   }
 
   main {
     background: #333333;
     width: 100%;
-    min-height: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 1rem;
+    padding: 2rem;
     box-sizing: inherit;
     position: relative;
   }
 
   .content {
     display: flex;
-    justify-content: space-around;
     flex-direction: column;
-    width: 100%;
-    max-width: 1500px;
-    margin-bottom: 3rem;
-  }
-
-  .topside {
-    display: flex;
-    justify-content: center;
-  }
-
-  .subtitle {
-    margin-top: 2rem;
-    display: flex;
-    justify-content: center;
-  }
-
-  .middleside {
-    display: flex;
-    justify-content: center;
     align-items: center;
-  }
-
-  .underside {
-    display: flex;
-    justify-content: center;
-  }
-
-  .content h1 {
-    margin-top: 1.75rem;
-  }
-
-  .content p {
-    display: flex;
-    justify-content: center;
-    font-family: 'Urbanist';
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
   }
 
   .pill-group {
-    margin-top: 3rem;
+    margin-top: 2rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    gap: 1.25rem;
-    --pill-accent: var(--yellow);
+    gap: 1rem;
   }
 
   .pill {
-    display: flex;
+    display: inline-flex;
     align-items: center;
-    --pill-accent: var(--yellow);
     background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
     color: var(--pill-accent);
-    padding-inline: 0.75rem;
-    padding-block: 0.375rem;
-    border-radius: 2.75rem;
-    border: 0;
-    transition: background 0.3s ease;
-    font-family: 'Urbanist';
-    font-size: 0.875rem;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 1.4rem;
-    letter-spacing: -0.00875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
     text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.00875rem;
+    transition: background 0.3s ease, transform 0.2s;
   }
 
   .pill:hover {
     background: color-mix(in srgb, var(--pill-accent) 30%, transparent);
-  }
-
-  .pill-group svg {
-    margin-inline-start: 0.25rem;
+    transform: scale(1.05);
   }
 
   .social-links {
-    height: 100px;
+    margin-top: 2rem;
     display: flex;
-    align-items: flex-end;
-    gap: 0.80rem;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
   }
 
-  .social-links path {
-    transition: fill 0.4s ease;
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+
+  .social-links svg path {
     fill: var(--brown-hover);
+    transition: fill 0.3s ease;
   }
 
   .social-links a:hover svg path {
     fill: var(--brown-full);
   }
 
-  @media screen and (max-width: 650px) {
-    .content {
-      flex-direction: column;
-      width: max-content;
+  .social-links a:hover {
+    transform: scale(1.1);
+  }
+
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      letter-spacing: 0.05em;
     }
 
+    .pill {
+      font-size: 0.875rem;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .content {
+      padding: 1rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .pill-group {
+      gap: 0.5rem;
+    }
+
+    .social-links {
+      gap: 0.5rem;
+    }
   }
 </style>
 
@@ -178,9 +175,9 @@
           rel="noopener"
         >
           <svg
-            width="25"
-            height="24"
-            viewBox="0 0 25 24"
+            width="28"
+            height="48"
+            viewBox="0 -1 28 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             alt="Instagram"
@@ -195,9 +192,9 @@
           rel="noopener"
         >
           <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
+            width="28"
+            height="48"
+            viewBox="0 -1.5 28 48"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             alt="Spotify"
@@ -216,7 +213,7 @@
           <svg
             width="28"
             height="48"
-            viewBox="44 -140 42 280"
+            viewBox="45 -10 42 280"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             alt="Bandcamp"
@@ -235,7 +232,7 @@
           <svg
             width="29"
             height="48"
-            viewBox="0 0 24 1"
+            viewBox="-5 18 24 1"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             alt="Youtube"
@@ -254,7 +251,7 @@
           <svg
             width="29"
             height="48"
-            viewBox="0 0 27 1"
+            viewBox="-7 20 27 1"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             alt="Mail"
