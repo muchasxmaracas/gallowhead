@@ -1,27 +1,32 @@
-# Stage 1: Build the Angular application
-FROM node:lts-alpine3.19 AS build
+# Stage 1: Build the Angular app
+FROM node:18 AS build
 
-WORKDIR /usr/src/app
+# Set working directory
+WORKDIR /app
 
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
 # Install dependencies
-RUN npm install -g npm@10.8.0 @angular/cli
+RUN npm install
 
-# Copy all files
+# Copy the rest of the application code
 COPY . .
 
-# Build the Angular app
-RUN npm install && ng build gallowhead
+# Build the Angular app for production
+RUN npm run build --prod
 
-# Stage 2: Serve the application with nginx
-FROM nginx:1.25.4-alpine
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
 
-RUN rm -rf /usr/share/nginx/html/*
+# Copy the built Angular app from the previous stage
+COPY --from=build /app/dist/gallowhead /usr/share/nginx/html
 
-# Copy the build output to the nginx html directory
-COPY --from=build /usr/src/app/dist/gallowhead /usr/share/nginx/html
-RUN chown -R nginx:nginx /usr/share/nginx/html/ && chmod -R 755 /usr/share/nginx/html/
+# Copy custom Nginx configuration (if needed)
+COPY deploy/webserver/default-prod.conf /etc/nginx/conf.d/default.conf
 
-# Copy custom nginx configuration if needed
-COPY --from=build /usr/src/app/deploy/webserver/container/default.conf /etc/nginx/conf.d/default.conf
+# Expose port 80
+EXPOSE 80
+
+# Start Nginx server
+CMD ["nginx", "-g", "daemon off;"]
