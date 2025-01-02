@@ -6,7 +6,7 @@ metadata:
 spec:
   secretName: gallowhead-test-cert
   issuerRef:
-    name: letsencrypt-staging
+    name: letsencrypt-prod
     kind: ClusterIssuer
   dnsNames:
     - test.gallowhead.com
