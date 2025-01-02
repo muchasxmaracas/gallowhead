@@ -8,6 +8,6 @@ spec:
   dnsNames:
     - test.gallowhead.com
   issuerRef:
-    name: letsencrypt-prod
+    name: letsencrypt-staging
     kind: ClusterIssuer
   secretName: gallowhead-test-cert
