@@ -1,13 +1,14 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: gallowhead-test-cert
+  name: gallowhead-cert
   namespace: cert-manager
 spec:
-  commonName: test.gallowhead.com
+  commonName: gallowhead.com
   dnsNames:
     - gallowhead.com
+    - test.gallowhead.com
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
-  secretName: gallowhead-test-cert
+  secretName: gallowhead-cert
