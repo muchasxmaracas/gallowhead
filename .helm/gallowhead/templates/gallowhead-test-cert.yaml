@@ -6,7 +6,7 @@ metadata:
 spec:
   commonName: test.gallowhead.com
   dnsNames:
-    - test.gallowhead.com
+    - gallowhead.com
   issuerRef:
     name: letsencrypt-staging
     kind: ClusterIssuer
