@@ -56,7 +56,7 @@ ingress:
         - path: /
           pathType: ImplementationSpecific
   tls:
-    - secretName: gallowhead-cert
+    - secretName: gallowhead-test-cert
       hosts:
         - test.gallowhead.com
 
