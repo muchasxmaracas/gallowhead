@@ -4,9 +4,8 @@ metadata:
   name: gallowhead-cert
   namespace: cert-manager
 spec:
-  commonName: gallowhead.com
+  commonName: test.gallowhead.com
   dnsNames:
-    - gallowhead.com
     - test.gallowhead.com
   issuerRef:
     name: letsencrypt-staging
