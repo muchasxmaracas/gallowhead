@@ -1,112 +1,14 @@
-<style>
-    main {
-      background: #FFFFFF;
-      width: 100%;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-  
-    .parent {
-      width: 100%;
-      max-width: 1200px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
-      align-items: center;
-      box-sizing: border-box;
-    }
-  
-    .title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-  
-    .title p {
-      font-family: 'Urbanist', sans-serif;
-      font-size: 2rem;
-      font-weight: bold;
-      color: #333;
-      margin: 0;
-    }
-  
-    .content {
-      width: 100%;
-      padding: 1rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2rem;
-      box-sizing: border-box;
-    }
-  
-    .pics {
-      width: 100%;
-      display: flex;
-      justify-content: center;
-    }
-  
-    .pics img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-  
-    .logo {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-  
-    .logo img {
-      max-width: 45%;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    }
-  
-    @media screen and (max-width: 768px) {
-      .title p {
-        font-size: 1.8rem;
-      }
-  
-      .logo img {
-        max-width: 70%;
-      }
-    }
-  
-    @media screen and (max-width: 480px) {
-      .title p {
-        font-size: 1.5rem;
-      }
-  
-      .logo img {
-        max-width: 90%;
-      }
-    }
-  </style>
-  
-  <main class="main">
-    <div class="parent">
-      <div class="title">
-        <p>MEDIA | PRESS</p>
+<main class="main">
+  <div class="overlay"></div>
+  <div class="parent">
+    <div class="content">
+      <div class="pics">
+        <img src="assets/imgs/bandpic.jpg" alt="Band Picture" />
       </div>
-  
-      <div class="content">
-        <div class="pics">
-          <img src="assets/imgs/bandpic.jpg" alt="Band Picture" />
-        </div>
-        <div class="logo">
-          <img src="assets/imgs/logo-blackonwhite.jpg" alt="Black on White Logo" />
-          <img src="assets/imgs/logo-whiteonblack.jpg" alt="White on Black Logo" />
-        </div>
+      <div class="logo">
+        <img src="assets/imgs/logo-blackonwhite.jpg" alt="Black on White Logo" />
+        <img src="assets/imgs/logo-whiteonblack.jpg" alt="White on Black Logo" />
       </div>
     </div>
-  </main>
-  
+  </div>
+</main>

@@ -1,0 +1,157 @@
+:host {
+    --yellow: oklch(81.44% 0.169 76.64);
+    --brown-full: oklch(60.67% 0.143 59.29);
+    --brown-hover: oklch(81.44% 0.169 76.64);
+    --pill-accent: var(--yellow);
+  
+    font-family: "Urbanist", sans-serif;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  body {
+    margin: 0;
+    font-family: 'Urbanist', sans-serif;
+    overflow: hidden; /* Disable scrollbars */
+  }
+  
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.125rem);
+    color: #FFFFFF;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.1em;
+    margin: 0;
+    text-align: center;
+    font-family: 'Castoro Titling', serif;
+  }
+  
+  p {
+    margin: 0;
+    color: #FFFFFF;
+    text-align: center;
+  }
+  
+  main {
+    background: #333333;
+    width: 100%;
+    min-height: 98vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+    box-sizing: inherit;
+    position: relative;
+  }
+  
+  .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 1rem;
+  }
+  
+  .pill-group {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    background: color-mix(in srgb, var(--pill-accent) 5%, transparent);
+    color: var(--pill-accent);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    border: none;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: -0.00875rem;
+    transition: background 0.3s ease, transform 0.2s;
+  }
+  
+  .pill:hover {
+    background: color-mix(in srgb, var(--pill-accent) 30%, transparent);
+    transform: scale(1.05);
+  }
+  
+  .social-links {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .social-links a {
+    display: inline-flex;
+    align-items: center;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-links svg path {
+    fill: var(--brown-hover);
+    transition: fill 0.3s ease;
+  }
+  
+  .social-links a:hover svg path {
+    fill: var(--brown-full);
+  }
+  
+  .social-links a:hover {
+    transform: scale(1.1);
+  }
+
+  .underside {
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+  }
+  
+  .hidden {
+    max-height: 0;
+    opacity: 0;
+  }
+  
+  .visible {
+    max-height: 100vh; /* or a suitable height */
+    opacity: 1;
+  }
+  
+  @media screen and (max-width: 768px) {
+    h1 {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      letter-spacing: 0.05em;
+    }
+  
+    .pill {
+      font-size: 0.875rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .content {
+      padding: 1rem;
+    }
+  
+    h1 {
+      font-size: 2rem;
+    }
+  
+    .pill-group {
+      gap: 0.5rem;
+    }
+  
+    .social-links {
+      gap: 0.5rem;
+    }
+  }
+  

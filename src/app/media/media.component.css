@@ -1,0 +1,201 @@
+/* Main container */
+.main {
+    background: #333;
+    width: 100%;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: -20rem;
+    position: relative;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent overflow during animation */
+  }
+  
+/* Overlay for the animation */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    z-index: 1;
+  }
+
+  /* Slide-in animation */
+@keyframes slideIn {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+      visibility: hidden;
+    }
+    50% {
+      transform: translateY(50%);
+      opacity: 0.5;
+      visibility: hidden;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Fade-out animation */
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+  
+/* Parent container */
+.parent {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 2; /* Ensure it appears above the overlay */
+    animation: slideIn 1.5s ease-in-out forwards;
+}
+  
+/* Slide-in animation */
+@keyframes slideIn {
+    0% {
+      transform: translateY(50%);
+      opacity: 0;
+      visibility: hidden;
+    }
+    50% {
+      transform: translateY(50%);
+      opacity: 0.5;
+      visibility: hidden;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  
+  /* Title styles */
+  .title {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  
+  .title p {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #FFFFFF;
+    margin: 0;
+    opacity: 0;
+    animation: fadeIn 1.5s ease-in-out forwards;
+    animation-delay: 0.5s; /* Fade in after overlay fades out */
+  }
+  
+  /* Fade-in for title */
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  /* Content styles */
+  .content {
+    width: 100%;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    box-sizing: border-box;
+  }
+  
+  .pics {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pics img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Logos and images */
+  .logo {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+  
+  .logo img {
+    max-width: 45%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Text content */
+  .text {
+    font-size: 1rem;
+    font-family: 'Urbanist', sans-serif;
+    line-height: 1.5rem;
+    color: #FFFFFF;
+    max-width: 700px;
+    width: 100%;
+    display: block;
+    position: relative;
+    border: 1px solid #CCC;
+    border-radius: 8px;
+    background: #333;
+    padding: 1.5rem;
+    box-sizing: border-box;
+    text-align: justify;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 768px) {
+    .title p {
+      font-size: 1.8rem;
+    }
+  
+    .logo img {
+      max-width: 70%;
+    }
+  
+    .text {
+      font-size: 0.95rem;
+      padding: 1rem;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .title p {
+      font-size: 1.5rem;
+    }
+  
+    .logo img {
+      max-width: 90%;
+    }
+  
+    .text {
+      font-size: 0.85rem;
+      padding: 0.75rem;
+    }
+  }
+  
