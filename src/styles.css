@@ -1,1 +1,100 @@
-/* You can add global styles to this file, and also import other style files */
+main {
+    background: #FFFFFF;
+    width: 100%;
+    min-height: 90vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0rem;
+    position: relative;
+    box-sizing: border-box;
+    transition: height 0.5s ease;
+  }
+
+  /* Parent container to ensure alignment */
+  .parent {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 2; /* Ensure it appears above the overlay */
+    animation: slideIn 1.5s ease-in-out forwards;
+}
+  
+  .main.halved {
+    min-height: 50vh;
+    height: 50vh;
+  }
+  
+  .menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #333;
+    color: #FFF;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1rem;
+    transform: translateY(-100%);
+    transition: transform 0.5s ease;
+    z-index: 10;
+  }
+  
+  .menu.visible {
+    transform: translateY(0);
+  }
+  
+  .section {
+    width: 100%;
+    max-width: 1200px;
+    height: auto; /* Let the content define the height */
+    padding: 1rem 0;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin: 0; /* Remove default margin */
+  }
+
+  .section + .section {
+    margin-top: 0.5rem; /* Space between sections */
+  }
+
+  .section p {
+    font-family: 'Urbanist', sans-serif;
+    font-size: 1rem;
+    line-height: 1.5;
+    margin: 10;
+    overflow-wrap: break-word;
+    overflow: hidden; /* Prevent content from overflowing */
+    text-overflow: ellipsis; /* Add an ellipsis if the content is too long */
+  }
+
+  @media screen and (max-width: 768px) {
+    .section {
+      height: 8vh; /* Increase height for better readability */
+      padding: 0.1rem;
+    }
+  
+    .section p {
+      font-size: 0.9rem; /* Adjust font size */
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .section {
+      height: 8vh; /* Increase height further for small screens */
+      padding: 0.1rem;
+    }
+  
+    .section p {
+      font-size: 0.8rem; /* Further reduce font size */
+    }
+  }

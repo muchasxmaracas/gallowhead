@@ -1,0 +1,151 @@
+/* Main container */
+.main {
+  background: #333;
+  width: 100%;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: -20rem;
+  position: relative;
+  box-sizing: border-box;
+  overflow: hidden; /* Prevent overflow during animation */
+}
+
+/* Overlay for the animation */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #333;
+  z-index: 1;
+}
+
+/* Fade-out animation */
+@keyframes fadeOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    visibility: hidden;
+  }
+}
+
+/* Parent container */
+.parent {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    box-sizing: border-box;
+    z-index: 2; /* Ensure it appears above the overlay */
+    animation: slideIn 1.5s ease-in-out forwards;
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  0% {
+    transform: translateY(50%);
+    opacity: 0;
+    visibility: hidden;
+  }
+  50% {
+    transform: translateY(50%);
+    opacity: 0.5;
+    visibility: hidden;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Title styles */
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.title p {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  opacity: 1;
+  animation: fadeIn 1.2s ease-in-out forwards;
+  animation-delay: 0.25s; /* Fade in after overlay fades out */
+}
+
+/* Fade-in for title */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Content styles */
+.content {
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.text {
+  font-size: 1rem;
+  font-family: 'Urbanist', sans-serif;
+  line-height: 1.5rem;
+  color: #FFFFFF;
+  max-width: 700px;
+  width: 100%;
+  display: block;
+  position: relative;
+  border: 1px solid #CCC;
+  border-radius: 8px;
+  background: #333;
+  padding: 1.5rem;
+  box-sizing: border-box;
+  text-align: justify;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+  .title p {
+    font-size: 1.5rem;
+  }
+
+  .text {
+    font-size: 0.95rem;
+    padding: 1rem;
+    opacity: 1;
+  }
+
+  .content {
+    padding: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title p {
+    font-size: 1.2rem;
+  }
+
+  .text {
+    font-size: 0.85rem;
+    padding: 0.75rem;
+  }
+}
