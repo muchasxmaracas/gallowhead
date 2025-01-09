@@ -71,7 +71,7 @@ jobs:
           flavor: |
             latest=true
           tags: |
-            type=raw,value=${{ needs.release.outputs.new_release_version }}
+            type=raw,suffix=-live,value=prod
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.3.0
         with:
