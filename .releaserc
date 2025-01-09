@@ -1,5 +1,5 @@
 {
-  "branches": ["main"],
+  "branches": ["main", "test"],
   "plugins": [
     [
       "@semantic-release/changelog",
@@ -12,11 +12,15 @@
       "preset": "angular",
       "releaseRules": [
         { "type": "docs", "scope": "README", "release": "false" },
+        { "type": "doc", "scope": "README", "release": "false" },
         { "type": "bugfix", "scope": "*.component.html", "release": "patch" },
         { "type": "bugfix", "scope": "*.routes.ts", "release": "patch" },
+        { "type": "bugfix", "scope": "src/*", "release": "patch" },
         { "type": "fix", "scope": "*.component.html", "release": "patch" },
         { "type": "fix", "scope": "*.routes.ts", "release": "patch" },
+        { "type": "fix", "scope": "src/*", "release": "patch" },
         { "type": "ci", "release": "false" },
+        { "type": "chore", "release": "false" },
         { "type": "refactor", "release": "patch" },
         { "type": "style", "release": "patch" },
         { "type": "update", "release": "patch" },

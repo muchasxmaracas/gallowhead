@@ -2,15 +2,20 @@ name: Docker Image Build Test
 
 on:
   push:
-    branches: [ "!main" ]
+    branches:
+      - '*/*'
+      - 'test'
+      - '!main'
   pull_request:
-    branches: [ "!main" ]
+    branches:
+      - '*/*'
+      - 'test'
+      - '!main'
 
 jobs:
-
   build-test:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag gallowhead:latest-$(date +%s)
+      run: docker build . --file test.Dockerfile --tag gallowhead:test-$(date +%s)
