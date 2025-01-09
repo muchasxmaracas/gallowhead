@@ -8,7 +8,7 @@ image:
   repository: ghcr.io/muchasxmaracas/gallowhead
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "latest"
+  tag: "1.0.0"
 
 imagePullSecrets: 
   - name: ghcr-login-secret

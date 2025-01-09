@@ -1,5 +1,5 @@
 apiVersion: v2
-name: gallowhead
+name: gallowhead-prod
 description: A Helm chart for Gallowhead website
 
 # A chart can be either an 'application' or a 'library' chart.
