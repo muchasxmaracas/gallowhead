@@ -3,9 +3,9 @@ name: Semantic release, create and publish a Docker image
 # Configures this workflow to run every time a change is pushed to the branch called `main`.
 on:
   push:
-    branches: ["main"]
+    branches: ["!main"]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "!main" ]
 
 permissions:
   contents: read
@@ -23,7 +23,7 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag gallowhead:latest-$(date +%s)
+      run: docker build . --file test.Dockerfile --tag gallowhead:test-$(date +%s)
 
   release:
     permissions:
