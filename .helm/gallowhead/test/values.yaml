@@ -51,10 +51,15 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+    - host: test.gallowhead.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls:
     - secretName: gallowhead-test-cert
       hosts:
         - test.gallowhead.com
+        - www.test.gallowhead.com
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
