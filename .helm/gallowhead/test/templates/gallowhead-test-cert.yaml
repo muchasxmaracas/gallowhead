@@ -10,3 +10,4 @@ spec:
     kind: ClusterIssuer
   dnsNames:
     - test.gallowhead.com
+    - www.test.gallowhead.com
