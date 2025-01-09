@@ -3,14 +3,10 @@ name: Semantic release, create and publish a Docker image
 on:
   push:
     branches:
-      - '*/*'
-      - 'test'
-      - '!main'
+      - 'main'
   pull_request:
     branches:
-      - '*/*'
-      - 'test'
-      - '!main'
+      - 'main'
 
 permissions:
   contents: read
@@ -20,8 +16,16 @@ env:
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build the Docker image
+        run: docker build . --file test.Dockerfile --tag gallowhead:prod-$(date +%s)
+
   release:
     runs-on: ubuntu-latest
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     needs: [build-test]
     permissions:
       contents: write
@@ -65,14 +69,14 @@ jobs:
           labels: |
             org.opencontainers.image.created={{commit_date 'YYYY-MM-DDTHH:mm:ss.SSS[Z]'}}
           flavor: |
-            latest=false
+            latest=true
           tags: |
-            type=raw,suffix=-live,value=test
+            type=raw,value=${{ needs.release.outputs.new_release_version }}
       - name: Build and push Docker image
         uses: docker/build-push-action@v5.3.0
         with:
           context: .
-          file: test.Dockerfile
+          file: prod.Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
