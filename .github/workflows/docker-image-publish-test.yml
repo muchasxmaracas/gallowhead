@@ -3,12 +3,14 @@ name: Semantic release, create and publish a Docker image
 # Configures this workflow to run every time a change is pushed to the branch called `main`.
 on:
   push:
-    branches: 
+    branches:
       - '*/*'
+      - 'test'
       - '!main'
   pull_request:
     branches:
       - '*/*'
+      - 'test'
       - '!main'
 
 permissions:
