@@ -63,6 +63,7 @@ ingress:
     - secretName: gallowhead-prod-cert
       hosts:
         - gallowhead.com
+        - www.gallowhead.com
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious
