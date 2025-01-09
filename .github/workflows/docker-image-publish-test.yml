@@ -45,7 +45,6 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Semantic Release
-        id: semantic
         uses: cycjimmy/semantic-release-action@v4
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -79,7 +78,7 @@ jobs:
           flavor: |
             latest=true
           tags: |
-            type=raw,prefix=test,value=${{ steps.semantic.outputs.new_release_version }}
+            type=raw,prefix=test,value=${{ jobs.release.outputs.new_release_version }}
       # This step uses the `docker/build-push-action` action to build the image, based on your repository's `Dockerfile`. If the build succeeds, it pushes the image to GitHub Packages.
       # It uses the `context` parameter to define the build's context as the set of files located in the specified path. For more information, see "[Usage](https://github.com/docker/build-push-action#usage)" in the README of the `docker/build-push-action` repository.
       # It uses the `tags` and `labels` parameters to tag and label the image with the output from the "meta" step.
