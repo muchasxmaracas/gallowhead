@@ -21,7 +21,6 @@ env:
 
 # There is a single job in this workflow. It's configured to run on the latest available version of Ubuntu.
 jobs:
-  
   build-test:
     runs-on: ubuntu-latest
     steps:
@@ -30,11 +29,13 @@ jobs:
       run: docker build . --file test.Dockerfile --tag gallowhead:test-$(date +%s)
 
   release:
+    runs-on: ubuntu-latest
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
+    needs: [build-test]
     permissions:
       contents: write
       pull-requests: write
     name: release
-    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4.1.1
@@ -44,6 +45,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   build-and-push-image:
+    if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
+    needs: [release]
     runs-on: ubuntu-latest
     # Sets the permissions granted to the `GITHUB_TOKEN` for the actions in this job.
     permissions:
