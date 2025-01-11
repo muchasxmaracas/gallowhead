@@ -3,12 +3,12 @@ import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
-    selector: 'home-root',
+    selector: 'dates-root',
     standalone: true,
     imports: [RouterModule, CommonModule],
-    templateUrl: './home.component.html',
-    styleUrls: ['./home.component.css'],
+    templateUrl: './dates.component.html',
+    styleUrls: ['./dates.component.css'],
   })
-  export class HomeComponent {
+  export class DatesComponent {
     // Component logic here
   }

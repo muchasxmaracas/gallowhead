@@ -1,7 +1,7 @@
 <main class="main">
   <div class="content">
     <div class="section topside">
-      <h1>Gallowhead</h1>
+      <h1 [routerLink]="'/'">Gallowhead</h1>
     </div>
     <div class="section subtitle">
       <p>Heavy music from the Austrian alps</p>
@@ -9,11 +9,11 @@
     <div class="section middleside">
       <div class="pill-group">
         <!-- Use Angular's routerLink directive here -->
-        <a class="pill" [routerLink]="'/home'" rel="noopener">
-          <span>Home</span>
-        </a>
         <a class="pill" [routerLink]="'/band'" rel="noopener">
           <span>Band</span>
+        </a>
+        <a class="pill" [routerLink]="'/dates'" rel="noopener">
+          <span>Dates</span>
         </a>
         <a class="pill" [routerLink]="'/tech'" rel="noopener">
           <span>Tech | Riders</span>
