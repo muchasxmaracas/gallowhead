@@ -12,13 +12,7 @@ image:
 
 imagePullSecrets: 
   - name: ghcr-login-secret
-<<<<<<< HEAD
-nameOverride: gallowhead-prod""
-fullnameOverride: "gallowhead-prod"
-
-=======
   
->>>>>>> c593a63 (chore: typo)
 serviceAccount:
   # Specifies whether a service account should be created
   create: false
