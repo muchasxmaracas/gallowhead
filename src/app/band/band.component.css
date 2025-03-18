@@ -45,6 +45,7 @@
     box-sizing: border-box;
     z-index: 2; /* Ensure it appears above the overlay */
     animation: slideIn 1.5s ease-in-out forwards;
+    padding-top: 2rem;
 }
 
 /* Slide-in animation */

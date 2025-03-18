@@ -2,14 +2,14 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/muchasxmaracas/gallowhead
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "test-live"
 
 imagePullSecrets: 
   - name: ghcr-login-secret
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: "gallowhead-test"
+fullnameOverride: "gallowhead-test"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -61,29 +61,33 @@ ingress:
         - test.gallowhead.com
         - www.test.gallowhead.com
 
-resources:
+resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
   # resources, such as Minikube. If you do want to specify resources, uncomment the following
   # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+  # limits:
+  #   cpu: 200m
+  #   memory: 256Mi
+  # requests:
+  #   cpu: 150m
+  #   memory: 128Mi
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /healthcheck
     port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
 readinessProbe:
   httpGet:
-    path: /
+    path: /healthcheck
     port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
 
 autoscaling:
-  enabled: true
+  enabled: false
   minReplicas: 1
   maxReplicas: 3
   targetCPUUtilizationPercentage: 90
