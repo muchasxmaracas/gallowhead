@@ -6,14 +6,14 @@ replicaCount: 1
 
 image:
   repository: ghcr.io/muchasxmaracas/gallowhead
-  pullPolicy: IfNotPresent
+  pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "latest"
 
 imagePullSecrets: 
   - name: ghcr-login-secret
-nameOverride: ""
-fullnameOverride: ""
+nameOverride: gallowhead-prod""
+fullnameOverride: "gallowhead-prod"
 
 serviceAccount:
   # Specifies whether a service account should be created
