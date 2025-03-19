@@ -8,8 +8,7 @@ import { MediaComponent } from './media/media.component';
 export const routes: Routes = [
     {path: '', component: AppComponent},
     {path: 'dates', component: DatesComponent},
-    {path: 'band', component: BandComponent},  
+    {path: 'band', component: BandComponent},   
     {path: 'tech', component: TechComponent},
     {path: 'media', component: MediaComponent},
 ];
-
