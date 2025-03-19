@@ -17,14 +17,14 @@ env:
 
 jobs:
   build-test:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Build the Docker image
         run: docker build . --file test.Dockerfile --tag gallowhead:prod-$(date +%s)
 
   release:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     needs: [build-test]
     permissions:
@@ -48,7 +48,7 @@ jobs:
   build-and-push-image:
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     needs: [release]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write

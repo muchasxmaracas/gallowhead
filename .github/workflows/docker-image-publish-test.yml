@@ -21,7 +21,7 @@ env:
 
 jobs:
   release:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: write
       pull-requests: write
@@ -43,7 +43,7 @@ jobs:
   build-and-push-image:
     if: ${{ always() && contains(join(needs.*.result, ','), 'success') }}
     needs: [release]
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
