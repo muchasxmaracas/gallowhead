@@ -1,0 +1,105 @@
+/* Overall styling for the concert dates section */
+.concert-dates {
+    max-width: 800px;
+    margin: 3rem auto;
+    padding: 2rem;
+    background: #0e0e0e;
+    border: 1px solid #181818;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+    text-align: center;
+}
+
+.concert-dates h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #b1a499;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.08em;
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* List styling */
+.concert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: block;  /* Keep the list structure */
+}
+
+.concert-list li {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 1rem;
+    color: #84776c;
+    background: #121212;
+    border-bottom: 1px solid #1a1a1a;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    position: relative;
+    cursor: pointer;
+    transition: background 0.4s ease, color 0.3s ease;
+    text-align: center;
+}
+
+.concert-list li:last-child {
+    border-bottom: none;
+}
+
+.concert-list li:hover {
+    background: #1a1a1a;
+    color: #a4978b;
+}
+
+/* Infobox styling */
+.infobox {
+    display: none; /* Initially hide the infobox */
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    margin-top: 5px;
+    border-radius: 5px;
+    position: absolute;
+    top: 0;
+    left: 80%; /* Position it to the right of the concert date */
+    margin-left: 10px; /* Space between concert date and infobox */
+    z-index: 10;
+    width: 250px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s 0.3s;
+}
+
+/* Show the infobox when the concert date is active */
+.concert-date.active .infobox {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
+/* Make the concert date show active background */
+.concert-date.active {
+    background-color: #444;
+}
+
+/* Mobile-Friendly */
+@media (max-width: 600px) {
+    .concert-dates {
+        padding: 1rem;
+    }
+
+    .concert-list li {
+        font-size: 1rem;
+        padding: 0.75rem;
+        width: 92%; /* Stack them vertically */
+        margin-bottom: 1rem;
+    }
+
+    .infobox {
+        width: 200px;
+        font-size: 0.9rem;
+        left: 30%;
+    }
+}
