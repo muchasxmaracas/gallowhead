@@ -1,6 +1,11 @@
 # Gallowhead
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.0.
+This is a passion project for my band Gallowhead.
+
+## Hosting
+
+This website is currently hosted on a k3s cluster and is being deployed via Rancher Continuous delivery.
+
 
 ## Development server
 
