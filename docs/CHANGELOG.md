@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/muchasxmaracas/gallowhead/compare/v1.0.0...v1.0.1) (2025-03-19)
+
+
+### Bug Fixes
+
+* nginx configs ([98f1ab2](https://github.com/muchasxmaracas/gallowhead/commit/98f1ab24685abb84d5bf043b243ce6c5e977c7e1))
+
 # 1.0.0 (2025-01-09)
 
 

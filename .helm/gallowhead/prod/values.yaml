@@ -12,9 +12,7 @@ image:
 
 imagePullSecrets: 
   - name: ghcr-login-secret
-nameOverride: gallowhead-prod""
-fullnameOverride: "gallowhead-prod"
-
+  
 serviceAccount:
   # Specifies whether a service account should be created
   create: false
@@ -79,12 +77,16 @@ resources:
 
 livenessProbe:
   httpGet:
-    path: /
+    path: /healthcheck
     port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
 readinessProbe:
   httpGet:
-    path: /
+    path: /healthcheck
     port: http
+  initialDelaySeconds: 5
+  periodSeconds: 10
 
 autoscaling:
   enabled: true
