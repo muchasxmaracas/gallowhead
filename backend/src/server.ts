@@ -13,9 +13,9 @@ const PORT = process.env['PORT'] || 3000;
 const API_KEY = process.env['GOOGLE_SHEETS_API_KEY'];
 
 // Enable CORS for Angular frontend
-app.use(cors({
-    origin: process.env['FRONTEND_URL'] || 'http://localhost:4200' || 'https://test.gallowhead.com' || 'https://gallowhead.com'
-}));
+// app.use(cors({
+//     origin: process.env['FRONTEND_URL'] || 'http://localhost:4200' || 'https://test.gallowhead.com' || 'https://gallowhead.com'
+// }));
 
 // Type definitions
 interface SheetResponse {
