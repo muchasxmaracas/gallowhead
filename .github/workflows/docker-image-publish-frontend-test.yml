@@ -1,4 +1,4 @@
-name: Semantic release, create and publish a Docker image
+name: Semantic release, create and publish the frontend Docker image
 
 on:
   push:
@@ -68,7 +68,7 @@ jobs:
           tags: |
             type=raw,suffix=-live,value=test
       - name: Build and push frontend Docker image
-        uses: docker/build-push-action@v5.3.0
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: test.frontend.Dockerfile
