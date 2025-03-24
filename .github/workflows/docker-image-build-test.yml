@@ -18,11 +18,11 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the frontend Docker image
-      run: docker build . --file test.frontend-Dockerfile --tag gallowhead:test-frontend-$(date +%s)
+      run: docker build . --file test.frontend.Dockerfile --tag gallowhead:test-frontend-$(date +%s)
 
   build-test-backend:
     runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
     - name: Build the backend Docker image
-      run: docker build . --file test.backend-Dockerfile --tag gallowhead:test-backend-$(date +%s)
+      run: docker build . --file test.backend.Dockerfile --tag gallowhead:test-backend-$(date +%s)
