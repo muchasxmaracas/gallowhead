@@ -1,0 +1,18 @@
+<div class="concert-dates">
+  <h2>Upcoming Shows</h2>
+  <ul class="concert-list">
+      <li *ngFor="let concert of concertData" (click)="toggleConcert(concert, $event)" [ngClass]="{'concert-date': true, 'active': concert.active}">
+          {{ concert.date }} – {{ concert.city }}, {{ concert.country }}
+          <div class="infobox" *ngIf="concert.active">
+              <p>{{ concert.venue }}</p>
+              <p>{{ concert.info }}</p>
+              <p>
+                  🎟️ <a [href]="concert.tickets" target="_blank">Tickets</a>
+              </p>
+              <p>
+                  🎶 With: {{ concert.lineup }}
+              </p>
+          </div>
+      </li>
+  </ul>
+</div>
