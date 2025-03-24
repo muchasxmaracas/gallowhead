@@ -13,7 +13,7 @@ RUN cd backend && npm install --only=production
 # Copy backend source code (Make sure it includes server.ts or server.js)
 COPY backend ./backend
 
-RUN cd backend && npm ci
+RUN cd backend && npm ci && npm run build
 
 # Set working directory
 WORKDIR /app/backend
