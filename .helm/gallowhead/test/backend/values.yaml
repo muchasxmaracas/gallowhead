@@ -77,19 +77,6 @@ env:
     PORT: 3000
     FRONTEND_URL: https://test.gallowhead.com
 
-livenessProbe:
-  httpGet:
-    path: /api/health
-    port: backend
-  initialDelaySeconds: 5
-  periodSeconds: 10
-readinessProbe:
-  httpGet:
-    path: /api/health
-    port: backend
-  initialDelaySeconds: 5
-  periodSeconds: 10
-
 autoscaling:
   enabled: false
   minReplicas: 1
