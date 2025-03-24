@@ -1,15 +1,13 @@
 replicaCount: 1
 
 image:
-  repository: ghcr.io/muchasxmaracas/gallowhead-backend
+  repository: ghcr.io/muchasxmaracas/gallowheadbackend
   pullPolicy: Always
   # Overrides the image tag whose default is the chart appVersion.
   tag: "test-live"
 
 imagePullSecrets: 
   - name: ghcr-login-secret
-nameOverride: "gallowhead-test"
-fullnameOverride: "gallowhead-test"
 
 serviceAccount:
   # Specifies whether a service account should be created
@@ -73,6 +71,11 @@ resources: {}
   # requests:
   #   cpu: 150m
   #   memory: 128Mi
+
+env:
+  normal:
+    PORT: 3000
+    FRONTEND_URL: https://test.gallowhead.com
 
 livenessProbe:
   httpGet:
