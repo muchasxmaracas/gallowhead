@@ -25,4 +25,4 @@ EXPOSE 3000
 CMD ["node", "dist/server.js"]
 
 HEALTHCHECK --interval=5m --timeout=3s \
-  CMD curl -f http://localhost:3000/api/health || exit 1
+  CMD curl -f http://test.api.gallowhead.com/api/health || exit 1
