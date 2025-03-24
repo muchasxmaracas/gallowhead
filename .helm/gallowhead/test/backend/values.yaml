@@ -73,8 +73,9 @@ resources:
     memory: 128Mi
 
 env:
-  PORT: 3000
-  FRONTEND_URL: https://test.gallowhead.com
+  normal:
+    PORT: 3000
+    FRONTEND_URL: https://test.gallowhead.com
 
 livenessProbe:
   httpGet:
