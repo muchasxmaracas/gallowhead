@@ -1,6 +1,6 @@
 apiVersion: v2
-name: gallowhead-test
-description: A Helm chart for Gallowhead website in the Test environment
+name: gallowhead-frontend-test
+description: A Helm chart for frontend of Gallowhead website in the Test environment
 
 # A chart can be either an 'application' or a 'library' chart.
 #

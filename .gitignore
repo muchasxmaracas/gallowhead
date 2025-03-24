@@ -41,7 +41,7 @@ testem.log
 
 # Security
 backend/.env
-
+.dev.Dockerfile
 
 # System files
 .DS_Store
