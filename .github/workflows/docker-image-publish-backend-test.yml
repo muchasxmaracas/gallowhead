@@ -17,7 +17,7 @@ permissions:
 
 env:
   REGISTRY: ghcr.io
-  IMAGE_NAME: gallowheadbackend
+  IMAGE_NAME: gallowhead
 
 jobs:
   release:
@@ -58,7 +58,7 @@ jobs:
           flavor: |
             latest=false
           tags: |
-            type=raw,suffix=-live,value=test
+            type=raw,suffix=-live,value=backend-test
       - name: Build and push backend Docker image
         uses: docker/build-push-action@v6
         with:
