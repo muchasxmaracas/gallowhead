@@ -49,7 +49,7 @@ export class DatesComponent implements OnInit {
     }
 
     fetchConcertData() {
-        const url = `http://localhost:3000/api/sheet-data?sheetId=${this.sheetId}&range=${this.range}`;
+        const url = `http://test.api.gallowhead.com/api/sheet-data?sheetId=${this.sheetId}&range=${this.range}`;
 
         this.http.get<SheetResponse>(url).subscribe({
             next: (response: SheetResponse) => this.processSheetData(response),
