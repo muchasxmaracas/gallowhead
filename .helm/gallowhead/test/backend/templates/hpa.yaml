@@ -2,7 +2,7 @@
 apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
-  name: {{ include "gallowhead.fullname" . }}-backend
+  name: gallowhead-backend
   labels:
     {{- include "gallowhead.labels" . | nindent 4 }}
 spec:
