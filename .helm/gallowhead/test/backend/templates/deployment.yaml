@@ -44,9 +44,9 @@ spec:
             {{- toYaml .Values.readinessProbe | nindent 12 }}
           env:
             - name: PORT
-              value: {{ .Values.env.PORT }}
+              value: {{ .Values.env.normal.PORT }}
             - name: FRONTEND_URL
-              value: {{ .Values.env.FRONTEND_URL }}
+              value: {{ .Values.env.normal.FRONTEND_URL }}
             - name: GOOGLE_SHEETS_API_KEY
               valueFrom:
                 secretKeyRef:
