@@ -38,6 +38,45 @@ service:
   type: ClusterIP
   port: 80
 
+ingress:
+  className: "traefik"
+  hosts:
+    - host: test.gallowhead.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: gallowhead-frontend
+              port:
+                number: 80
+        - path: /api
+          pathType: Prefix
+          backend:
+            service:
+              name: gallowhead-backend
+              port:
+                number: 3000
+    - host: test.api.gallowhead.com
+      http:
+        paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: gallowhead-backend
+              port:
+                number: 3000
+  tls:
+    - secretName: gallowhead-test-cert
+      hosts:
+        - test.gallowhead.com
+        - www.test.gallowhead.com
+    - secretName: gallowhead-api-test-cert
+      hosts:
+        - test.api.gallowhead.com
+
 resources: {}
   # We usually recommend not to specify default resources and to leave this as a conscious
   # choice for the user. This also increases chances charts run on environments with little
