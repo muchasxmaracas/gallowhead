@@ -40,10 +40,9 @@ service:
   port: 3000
 
 ingress:
-  enabled: true
+  enabled: false
   className: "traefik"
   annotations:
-    traefik.ingress.kubernetes.io/router.middlewares: gallowhead-cors@kubernetescrd
   hosts:
     - host: test.api.gallowhead.com
       paths:
