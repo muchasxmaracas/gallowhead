@@ -16,7 +16,8 @@ const API_KEY = process.env['GOOGLE_SHEETS_API_KEY'];
 app.use(cors({
     origin: ['https://test.api.gallowhead.com', 'https://test.gallowhead.com', 'https://api.gallowhead.com', 'https://gallowhead.com', 'http://localhost:4200'],
     methods: ['GET'],
-    allowedHeaders: ['Content-Type']
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true
 }));
 
 // Type definitions
