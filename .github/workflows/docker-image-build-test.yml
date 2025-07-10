@@ -14,14 +14,14 @@ on:
 
 jobs:
   build-test-frontend:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Build the frontend Docker image
       run: docker build . --file test.frontend.Dockerfile --tag gallowhead:test-frontend-$(date +%s)
 
   build-test-backend:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Build the backend Docker image
