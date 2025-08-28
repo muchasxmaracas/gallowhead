@@ -1,4 +1,4 @@
-name: HoruSec Security Pipeline
+name: Security Pipeline
 
 on: [push]
 
@@ -12,10 +12,7 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Check Docker Version
-        run: docker --version
-
       - name: Running Horusec Security
         run: |
           curl -fsSL https://raw.githubusercontent.com/ZupIT/horusec/main/deployments/scripts/install.sh | bash -s latest
-          horusec start -p="." -e="true"
+          horusec start -p="." -e="true" -D
